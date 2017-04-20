@@ -5,8 +5,10 @@ require_relative './artist_data.rb'
 Song.destroy_all
 Artist.destroy_all
 
-song_data = get_song_data()
-artist_data = get_artist_data()
+song_data = get_song_data
+artist_data = get_artist_data
+
+print 'Seeding Artists and Songs'
 
 song_data.each_pair do |artist_name, songs|
   info = artist_data[artist_name]
@@ -23,5 +25,9 @@ song_data.each_pair do |artist_name, songs|
       preview_url:  song[:preview_link],
       artist:       current_artist
     })
+
+    print '.'
   end
 end
+
+puts 'Done seeding.'
